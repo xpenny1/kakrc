@@ -160,7 +160,7 @@ map global goto r %{k}
 map global goto s %{l}
 map global goto o %{g}
 
-#map global normal <s-a> %{:w; info -markup %sh{export kak_buffile=$kak_buffile; sh ~/.config/kak/compile.sh 2>&1}<ret>}
+map global normal <s-a> %{:w; info -markup %sh{export kak_buffile=$kak_buffile; sh ~/.config/kak/compile.sh 2>&1}<ret>}
 
 #map global normal u %{:enter-user-mode lsp<ret>}
 

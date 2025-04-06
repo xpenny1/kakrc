@@ -1,6 +1,7 @@
 file=$(basename $kak_buffile)
 file_extention="${file##*.}"
 file_name=$(basename $file .$file_extention)
+file_path=$(dirname "$file")
 
 compile (){
   compiler=$1
@@ -84,7 +85,7 @@ fi
 
 if [ $file_name = "Dockerfile" ]
 then
-    compile docker build -q .
+    compile docker buildx build -q $file_path
     if [ $? -eq 0 ]
     then
         run docker run -t -v /home/cward:/home/cward:rw --rm $compile_result
