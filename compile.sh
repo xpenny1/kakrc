@@ -74,14 +74,25 @@ then
 fi
 
 
-if [ $file_extention = "c" ]
-then
-    compile clang $kak_buffile -o $file_name
-    if [ $? -eq 0 ]
-    then
-        run ./$file_name
-    fi
-fi
+[[ "$file_extention" == "c" ]] && compile clang $kak_buffile -o $file_name && run ./$file_name
+[[ "$file_extention" == "cpp" ]] && compile clang++ $kak_buffile -o $file_name && run ./$file_name
+
+#if [ $file_extention = "c" ]
+#then
+#    compile clang $kak_buffile -o $file_name
+#    if [ $? -eq 0 ]
+#    then
+#        run ./$file_name
+#    fi
+#fi
+#if [ $file_extention = "cpp" ]
+#then
+#    compile clang++ $kak_buffile -o $file_name
+#    if [ $? -eq 0 ]
+#    then
+#        run ./$file_name
+#    fi
+#fi
 
 if [ $file_name = "Dockerfile" ]
 then

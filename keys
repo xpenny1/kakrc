@@ -162,7 +162,7 @@ map global goto o %{g}
 
 map global normal <s-a> %{:w; info -markup %sh{export kak_buffile=$kak_buffile; sh ~/.config/kak/compile.sh 2>&1}<ret>}
 
-#map global normal u %{:enter-user-mode lsp<ret>}
+map global normal u %{:enter-user-mode lsp<ret>}
 
 map global insert <tab> '<a-;>:try lsp-snippets-select-next-placeholders catch %{ execute-keys -with-hooks <lt>tab> }<ret>' -docstring 'Select next snippet placeholder'
 map global lsp a %{:lsp-rename-prompt<ret>} -docstring 'lsp rename this shit'
